@@ -30,7 +30,9 @@ def wordReplace(text_input,guess):
     answers = text_input[1]
     index, answer_index = 0, 0
     guess = int(guess)
-    while (index < len(game_text)) and ( 0 < guess):
+    last_guess = 0
+
+    while (index < len(game_text)) and (last_guess < guess):
         word = game_text[index]
         if "___" in word:
             print textJoin(game_text,guess)
