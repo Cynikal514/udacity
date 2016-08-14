@@ -1,4 +1,3 @@
-# Testing this out
 def gameMode(level):
     # Input: Level chosen by user input
     # Output: list containing string and a list of the answers.
@@ -68,7 +67,9 @@ def gameStart():
         game_level = raw_input("Please select game difficulty - easy / medium / hard: ")
         game_text = gameMode(game_level)
         num_guess = raw_input("How many guesses would you like(1-10)? ")
-        while not num_guess < 11 and not 0 < num_guess:
+        min_guess = 0
+        max_guess = 11
+        while not num_guess < max_guess and not min_guess < num_guess:
             num_guess = raw_input("Sorry, number entered not in range. Please try again.\nHow many guesses would you like(1-10)? ")
         wordReplace(game_text,num_guess)
 
