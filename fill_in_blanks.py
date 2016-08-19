@@ -30,7 +30,9 @@ def wordReplace(text_input,guess):
     answers = text_input[1]
     index, answer_index = 0, 0
     guess = int(guess)
-    while (index < len(game_text)) and ( 0 < guess):
+    last_guess = 0
+
+    while (index < len(game_text)) and (last_guess < guess):
         word = game_text[index]
         if "___" in word:
             print textJoin(game_text,guess)
@@ -67,9 +69,12 @@ def gameStart():
         game_level = raw_input("Please select game difficulty - easy / medium / hard: ")
         game_text = gameMode(game_level)
         num_guess = raw_input("How many guesses would you like(1-10)? ")
-        while not num_guess < 11 and not 0 < num_guess:
+        min_guess = 0
+        max_guess = 11
+        while not num_guess < max_guess and not min_guess < num_guess:
             num_guess = raw_input("Sorry, number entered not in range. Please try again.\nHow many guesses would you like(1-10)? ")
         wordReplace(game_text,num_guess)
 
 
 gameStart()
+
